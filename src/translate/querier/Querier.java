@@ -43,7 +43,7 @@ public final class Querier<T extends AbstractHttpAttribute> {
         this.text = text;
     }
 
-    public void attach(T element){
+    public void attach(T element) {
         collection.add(element);
     }
 

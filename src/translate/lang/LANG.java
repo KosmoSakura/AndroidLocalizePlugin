@@ -147,10 +147,10 @@ public enum LANG {
     @Override
     public String toString() {
         return "LANG{" +
-                "code='" + code + '\'' +
-                ", name='" + name + '\'' +
-                ", englishName='" + englishName + '\'' +
-                '}';
+            "code='" + code + '\'' +
+            ", name='" + name + '\'' +
+            ", englishName='" + englishName + '\'' +
+            '}';
     }
 
 }

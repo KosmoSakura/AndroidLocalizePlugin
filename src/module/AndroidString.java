@@ -70,9 +70,9 @@ public class AndroidString {
     @Override
     public String toString() {
         return "AndroidString{" +
-                "name='" + name + '\'' +
-                ", value='" + value + '\'' +
-                ", translatable=" + translatable +
-                '}';
+            "name='" + name + '\'' +
+            ", value='" + value + '\'' +
+            ", translatable=" + translatable +
+            '}';
     }
 }

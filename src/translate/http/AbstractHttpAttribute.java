@@ -5,6 +5,7 @@ import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
+
 import translate.lang.LANG;
 
 import java.io.IOException;
@@ -19,9 +20,9 @@ import java.util.Map;
  * @see translate.trans.AbstractTranslator
  */
 public abstract class AbstractHttpAttribute {
-    public String              url;
+    public String url;
     public Map<String, String> formData;
-    public List<LANG>          langData;
+    public List<LANG> langData;
     public CloseableHttpClient httpClient;
 
     public AbstractHttpAttribute(String url) {
@@ -47,7 +48,7 @@ public abstract class AbstractHttpAttribute {
      * and saving audio data.
      *
      * @param source source language
-     * @param text the content to be converted into speech
+     * @param text   the content to be converted into speech
      * @return the string form of the translated result.
      */
     public abstract String run(LANG source, String text);
@@ -57,7 +58,7 @@ public abstract class AbstractHttpAttribute {
      * and parsing text data.
      *
      * @param from source language
-     * @param to target language
+     * @param to   target language
      * @param text the content to be translated
      * @return the string form of the translated result.
      */
@@ -65,7 +66,8 @@ public abstract class AbstractHttpAttribute {
 
     /**
      * Release and close the resources of HTTP
-     * @param httpEntity http entity
+     *
+     * @param httpEntity   http entity
      * @param httpResponse http response
      */
     public void close(HttpEntity httpEntity, CloseableHttpResponse httpResponse) {

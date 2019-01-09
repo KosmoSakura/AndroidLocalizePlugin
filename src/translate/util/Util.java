@@ -16,8 +16,8 @@ public class Util {
     public static List<NameValuePair> map2list(Map<String, String> mapParams) {
         List<NameValuePair> listParams = new ArrayList<NameValuePair>();
         Iterator it = mapParams.entrySet().iterator();
-        while(it.hasNext()) {
-            Map.Entry entry = (Map.Entry)it.next();
+        while (it.hasNext()) {
+            Map.Entry entry = (Map.Entry) it.next();
             String key = String.valueOf(entry.getKey());
             String value = String.valueOf(entry.getValue());
             if (value != null) {
@@ -70,7 +70,7 @@ public class Util {
         return input;
     }
 
-    private static final char[] hexDigits = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
+    private static final char[] hexDigits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     public static String md5(String input) {
         if (input == null) {

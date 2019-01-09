@@ -1,18 +1,21 @@
 package translate.trans.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.util.EntityUtils;
+
 import translate.lang.LANG;
 import translate.trans.AbstractTranslator;
 
 import javax.script.Invocable;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -21,7 +24,7 @@ public final class GoogleTranslator extends AbstractTranslator {
 
     private static final String url = "https://translate.google.cn/translate_a/single";
 
-    public GoogleTranslator(){
+    public GoogleTranslator() {
         super(url);
     }
 
@@ -192,7 +195,7 @@ public final class GoogleTranslator extends AbstractTranslator {
             engine.eval(new InputStreamReader(inputStream));
 
             if (engine instanceof Invocable) {
-                Invocable invoke = (Invocable)engine;
+                Invocable invoke = (Invocable) engine;
                 tk = String.valueOf(invoke.invokeFunction("token", text));
             }
         } catch (Exception e) {

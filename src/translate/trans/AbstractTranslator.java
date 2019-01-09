@@ -55,7 +55,8 @@ public abstract class AbstractTranslator extends AbstractHttpAttribute implement
     }
 
     @Override
-    public void setFormData(LANG source, String text){}
+    public void setFormData(LANG source, String text) {
+    }
 
     @Override
     public abstract void setFormData(LANG from, LANG to, String text);

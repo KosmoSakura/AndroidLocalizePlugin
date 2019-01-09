@@ -26,12 +26,15 @@ import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.PsiManager;
+
 import constant.Constants;
 import logic.ParseStringXml;
 import module.AndroidString;
+
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
 import translate.lang.LANG;
 import translate.querier.Querier;
 import translate.trans.AbstractTranslator;
@@ -70,7 +73,7 @@ public class TranslateTask extends Task.Backgroundable {
     @Override
     public void run(@NotNull ProgressIndicator progressIndicator) {
         boolean isOverwriteExistingString = PropertiesComponent.getInstance(myProject)
-                .getBoolean(Constants.KEY_IS_OVERWRITE_EXISTING_STRING);
+            .getBoolean(Constants.KEY_IS_OVERWRITE_EXISTING_STRING);
 
         Querier<AbstractTranslator> translator = new Querier<>();
         GoogleTranslator googleTranslator = new GoogleTranslator();
@@ -116,7 +119,7 @@ public class TranslateTask extends Task.Backgroundable {
 
             if (list != null && list.contains(androidString)) {
                 writeAndroidString.add(new AndroidString(
-                        androidString.getName(), list.get(list.indexOf(androidString)).getValue(), false));
+                    androidString.getName(), list.get(list.indexOf(androidString)).getValue(), false));
                 continue;
             }
 
@@ -218,7 +221,7 @@ public class TranslateTask extends Task.Backgroundable {
         VirtualFile virtualFile = LocalFileSystem.getInstance().refreshAndFindFileByIoFile(file);
         if (virtualFile != null) {
             ApplicationManager.getApplication().invokeLater(() ->
-                    FileEditorManager.getInstance(myProject).openFile(virtualFile, true));
+                FileEditorManager.getInstance(myProject).openFile(virtualFile, true));
         }
     }
 
