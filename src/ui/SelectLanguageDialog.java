@@ -21,13 +21,17 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.openapi.ui.Messages;
 import com.intellij.ui.components.JBCheckBox;
+
 import constant.Constants;
 import logic.LanguageHelper;
+
 import org.jetbrains.annotations.Nullable;
+
 import translate.lang.LANG;
 import translate.trans.impl.GoogleTranslator;
 
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.util.ArrayList;
@@ -84,10 +88,10 @@ public class SelectLanguageDialog extends DialogWrapper {
         overwriteExistingString.addItemListener(e -> {
             int state = e.getStateChange();
             PropertiesComponent.getInstance(mProject)
-                    .setValue(Constants.KEY_IS_OVERWRITE_EXISTING_STRING, state == ItemEvent.SELECTED);
+                .setValue(Constants.KEY_IS_OVERWRITE_EXISTING_STRING, state == ItemEvent.SELECTED);
         });
         boolean isOverwriteExistingString = PropertiesComponent.getInstance(mProject)
-                .getBoolean(Constants.KEY_IS_OVERWRITE_EXISTING_STRING);
+            .getBoolean(Constants.KEY_IS_OVERWRITE_EXISTING_STRING);
         overwriteExistingString.setSelected(isOverwriteExistingString);
         // add language
         mSelectLanguages.clear();
@@ -100,7 +104,7 @@ public class SelectLanguageDialog extends DialogWrapper {
             String code = language.getCode();
             JBCheckBox checkBoxLanguage = new JBCheckBox();
             checkBoxLanguage.setText(language.getEnglishName()
-                    .concat("(").concat(code).concat(")"));
+                .concat("(").concat(code).concat(")"));
             container.add(checkBoxLanguage);
             checkBoxLanguage.addItemListener(e -> {
                 int state = e.getStateChange();
