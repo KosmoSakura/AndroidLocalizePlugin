@@ -18,10 +18,13 @@ package logic;
 
 import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.openapi.project.Project;
+
 import constant.Constants;
+
 import org.apache.http.util.TextUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
 import translate.lang.LANG;
 
 import java.util.Arrays;
@@ -50,7 +53,7 @@ public class LanguageHelper {
         Objects.requireNonNull(languages);
 
         PropertiesComponent.getInstance(project)
-                .setValue(Constants.KEY_SELECTED_LANGUAGES, getLanguageCodeString(languages));
+            .setValue(Constants.KEY_SELECTED_LANGUAGES, getLanguageCodeString(languages));
     }
 
     /**
@@ -64,7 +67,7 @@ public class LanguageHelper {
         Objects.requireNonNull(project);
 
         String codeString = PropertiesComponent.getInstance(project)
-                .getValue(Constants.KEY_SELECTED_LANGUAGES);
+            .getValue(Constants.KEY_SELECTED_LANGUAGES);
 
         if (TextUtils.isEmpty(codeString)) {
             return null;

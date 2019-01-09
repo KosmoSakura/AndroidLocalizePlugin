@@ -24,9 +24,12 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.PsiFile;
+
 import logic.LanguageHelper;
 import module.AndroidString;
+
 import org.jetbrains.annotations.NotNull;
+
 import task.GetAndroidStringTask;
 import task.TranslateTask;
 import translate.lang.LANG;
@@ -39,8 +42,8 @@ import java.util.List;
  */
 public class ConvertAction extends AnAction implements SelectLanguageDialog.OnClickListener {
 
-    private Project             mProject;
-    private VirtualFile         mSelectFile;
+    private Project mProject;
+    private VirtualFile mSelectFile;
     private List<AndroidString> mAndroidStrings;
 
     @Override
@@ -121,10 +124,11 @@ public class ConvertAction extends AnAction implements SelectLanguageDialog.OnCl
     public void onClickListener(List<LANG> selectedLanguage) {
         LanguageHelper.saveSelectedLanguage(mProject, selectedLanguage);
         TranslateTask translationTask = new TranslateTask(
-                mProject, "In translation...", selectedLanguage, mAndroidStrings, mSelectFile);
+            mProject, "In translation...", selectedLanguage, mAndroidStrings, mSelectFile);
         translationTask.setOnTranslateListener(new TranslateTask.OnTranslateListener() {
             @Override
-            public void onTranslateSuccess() {}
+            public void onTranslateSuccess() {
+            }
 
             @Override
             public void onTranslateError(Throwable e) {
